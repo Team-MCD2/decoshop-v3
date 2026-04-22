@@ -416,6 +416,8 @@ p{margin:0 0 1em}
   .collection-card--wide.collection-card--tall{display:none}
   /* Hide the USPs bar on mobile (livraison/retrait/paiement/sélection) */
   .usp{display:none}
+  /* Hide hero slideshow prev/next arrows on mobile (dots are enough + swipe) */
+  .hero__arrow{display:none}
   /* Footer: stack & center on small screens */
   .footer__grid{grid-template-columns:1fr;gap:2rem;text-align:left}
   .footer__brand .brand{justify-content:flex-start}
