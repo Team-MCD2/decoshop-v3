@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://decoshop-toulouse.fr/</loc>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://decoshop-toulouse.fr/assets/logo.png</image:loc>
+      <image:title>DecoShop Toulouse</image:title>
+    </image:image>
+  </url>
+  <url><loc>https://decoshop-toulouse.fr/collections/ramadan</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://decoshop-toulouse.fr/collections/salon</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://decoshop-toulouse.fr/collections/arts-de-la-table</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://decoshop-toulouse.fr/collections/tapis</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://decoshop-toulouse.fr/collections/lanternes</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://decoshop-toulouse.fr/collections/vaisselle-orientale</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://decoshop-toulouse.fr/collections/calligraphie</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://decoshop-toulouse.fr/collections/nouveautes</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://decoshop-toulouse.fr/collections/soldes</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://decoshop-toulouse.fr/pages/mentions-legales</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://decoshop-toulouse.fr/pages/cgv</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://decoshop-toulouse.fr/pages/confidentialite</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://decoshop-toulouse.fr/pages/cookies</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://decoshop-toulouse.fr/pages/contact</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://decoshop-toulouse.fr/pages/faq</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://decoshop-toulouse.fr/pages/livraison</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://decoshop-toulouse.fr/pages/retours</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://decoshop-toulouse.fr/pages/suivi</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://decoshop-toulouse.fr/pages/a-propos</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://decoshop-toulouse.fr/pages/engagements</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://decoshop-toulouse.fr/pages/professionnels</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+</urlset>

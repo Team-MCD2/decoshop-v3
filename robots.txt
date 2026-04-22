@@ -1,0 +1,38 @@
+# robots.txt - DecoShop Toulouse
+# https://decoshop-toulouse.fr/
+
+User-agent: *
+Allow: /
+Disallow: /cart
+Disallow: /checkout
+Disallow: /account
+Disallow: /search
+Disallow: /*?sort_by=
+Disallow: /*?filter.
+
+# AI crawlers — allowed (we want to be cited)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+Sitemap: https://decoshop-toulouse.fr/sitemap.xml

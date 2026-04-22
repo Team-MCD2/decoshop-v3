@@ -1,0 +1,486 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#1E3A8A" />
+  <title>Contact &mdash; DecoShop Toulouse</title>
+  <meta name="description" content="Contactez DecoShop Toulouse : téléphone 07 67 27 86 25, email contact@decoshop-toulouse.fr, magasin 58 Rue Jacques Babinet. Réponse sous 24h." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://decoshop-toulouse.fr/pages/contact" />
+  <link rel="icon" href="../favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+  <link rel="stylesheet" href="_shared.css" />
+  <style>
+    /* ===== Contact page bespoke styles ===== */
+    .c-hero{position:relative;padding:5rem 0 3rem;text-align:center;overflow:hidden;background:
+      radial-gradient(60% 80% at 20% 10%,rgba(250,204,21,.25),transparent 60%),
+      radial-gradient(60% 80% at 80% 90%,rgba(30,58,138,.22),transparent 60%),
+      linear-gradient(180deg,#fff8e1 0%,#fff 80%)}
+    .c-hero::before{content:"";position:absolute;inset:0;background-image:
+      radial-gradient(circle at 1px 1px,rgba(30,58,138,.12) 1px,transparent 0);
+      background-size:28px 28px;opacity:.5;-webkit-mask-image:radial-gradient(ellipse at center,#000 30%,transparent 75%);mask-image:radial-gradient(ellipse at center,#000 30%,transparent 75%)}
+    .c-hero__eyebrow{display:inline-flex;align-items:center;gap:.5rem;padding:.4rem 1rem;border-radius:999px;background:rgba(30,58,138,.08);color:var(--navy);font-weight:600;font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;margin-bottom:1rem;animation:cFadeDown .7s both}
+    .c-hero__eyebrow .dot{width:8px;height:8px;border-radius:50%;background:#16a34a;box-shadow:0 0 0 0 rgba(22,163,74,.5);animation:cPing 1.8s ease-out infinite}
+    .c-hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,5vw,3.5rem);margin:.3rem 0 .6rem;animation:cFadeUp .8s .1s both;position:relative}
+    .c-hero h1 em{color:var(--navy);font-style:normal;background:linear-gradient(120deg,var(--navy) 0%,#2563eb 50%,var(--yellow) 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;background-size:200% 100%;animation:cShine 6s linear infinite}
+    .c-hero p{max-width:620px;margin:0 auto;color:#475569;font-size:1.1rem;line-height:1.6;animation:cFadeUp .8s .25s both;position:relative}
+    .c-hero__shapes{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+    .c-hero__shapes i{position:absolute;display:block;border-radius:50%;opacity:.55;filter:blur(8px);animation:cFloat 9s ease-in-out infinite}
+    .c-hero__shapes i:nth-child(1){left:8%;top:25%;width:70px;height:70px;background:radial-gradient(circle,var(--yellow),transparent 70%)}
+    .c-hero__shapes i:nth-child(2){right:12%;top:20%;width:60px;height:60px;background:radial-gradient(circle,var(--navy),transparent 70%);animation-delay:-2s}
+    .c-hero__shapes i:nth-child(3){left:18%;bottom:15%;width:90px;height:90px;background:radial-gradient(circle,#f97316,transparent 70%);animation-delay:-4s}
+    .c-hero__shapes i:nth-child(4){right:8%;bottom:25%;width:50px;height:50px;background:radial-gradient(circle,var(--yellow),transparent 70%);animation-delay:-6s}
+
+    @keyframes cFadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes cFadeDown{from{opacity:0;transform:translateY(-12px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes cShine{0%{background-position:0 0}100%{background-position:200% 0}}
+    @keyframes cPing{0%{box-shadow:0 0 0 0 rgba(22,163,74,.55)}80%,100%{box-shadow:0 0 0 14px rgba(22,163,74,0)}}
+    @keyframes cFloat{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(12px,-18px) scale(1.15)}}
+
+    /* ===== Cards grid ===== */
+    .c-cards{padding:3rem 0;max-width:1100px;margin:0 auto}
+    .c-cards__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem}
+    .c-card{position:relative;background:#fff;border:1px solid var(--line);border-radius:18px;padding:1.8rem 1.4rem 1.6rem;text-align:center;transition:transform .4s cubic-bezier(.22,.61,.36,1),box-shadow .4s,border-color .3s;overflow:hidden;isolation:isolate}
+    .c-card::before{content:"";position:absolute;inset:-2px;border-radius:18px;padding:2px;background:linear-gradient(135deg,var(--yellow),var(--navy),#f97316,var(--yellow));background-size:300% 300%;-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;opacity:0;transition:opacity .3s;animation:cShine 8s linear infinite;z-index:-1}
+    .c-card:hover{transform:translateY(-6px);box-shadow:0 24px 50px -20px rgba(30,58,138,.3)}
+    .c-card:hover::before{opacity:1}
+    .c-card__icon{width:56px;height:56px;margin:0 auto 1rem;border-radius:16px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#fff8e1,#fde68a);color:var(--navy);transition:transform .4s}
+    .c-card:hover .c-card__icon{transform:rotate(-6deg) scale(1.08)}
+    .c-card--phone .c-card__icon{background:linear-gradient(135deg,#dcfce7,#86efac);color:#15803d}
+    .c-card--email .c-card__icon{background:linear-gradient(135deg,#dbeafe,#93c5fd);color:#1d4ed8}
+    .c-card--shop .c-card__icon{background:linear-gradient(135deg,#fce7f3,#f9a8d4);color:#9d174d}
+    .c-card--tiktok .c-card__icon{background:linear-gradient(135deg,#0f172a,#334155);color:#fff}
+    .c-card h3{font-family:'Playfair Display',serif;margin:0 0 .5rem;font-size:1.15rem;color:var(--ink)}
+    .c-card .big{display:block;font-size:1.05rem;font-weight:700;color:var(--navy);margin:.3rem 0;text-decoration:none}
+    .c-card .big:hover{color:var(--yellow-600)}
+    .c-card small{color:#64748b;font-size:.85rem;line-height:1.5;display:block}
+    .c-card .c-chip{display:inline-flex;align-items:center;gap:.35rem;margin-top:.9rem;padding:.3rem .7rem;border-radius:999px;background:#f1f5f9;color:var(--ink);font-size:.72rem;font-weight:600}
+    .c-card .c-chip .live{width:7px;height:7px;border-radius:50%;background:#16a34a;animation:cPing 2s ease-out infinite}
+    .c-card .c-chip--closed .live{background:#dc2626}
+
+    /* ===== Main grid: form + side ===== */
+    .c-main{padding:1.5rem 0 4rem;max-width:1100px;margin:0 auto}
+    .c-main__grid{display:grid;grid-template-columns:1.3fr .9fr;gap:2.5rem;align-items:start}
+    .c-panel{background:#fff;border:1px solid var(--line);border-radius:20px;padding:2rem;box-shadow:0 10px 40px -20px rgba(0,0,0,.1);position:relative;overflow:hidden}
+    .c-panel::after{content:"";position:absolute;top:-30%;right:-10%;width:260px;height:260px;border-radius:50%;background:radial-gradient(circle,rgba(250,204,21,.22),transparent 70%);pointer-events:none;animation:cFloat 12s ease-in-out infinite}
+    .c-panel h2{font-family:'Playfair Display',serif;margin:0 0 .4rem;font-size:1.6rem;color:var(--ink)}
+    .c-panel p.sub{color:var(--muted);margin:0 0 1.6rem;font-size:.95rem}
+
+    /* Enhanced form */
+    .c-form{display:grid;gap:1.1rem;position:relative}
+    .c-field{position:relative}
+    .c-field input,.c-field textarea,.c-field select{width:100%;padding:1rem 1rem .75rem;border:1.5px solid var(--line);border-radius:12px;font:inherit;background:#fff;transition:border-color .25s,box-shadow .25s,transform .15s}
+    .c-field input:focus,.c-field textarea:focus,.c-field select:focus{outline:0;border-color:var(--navy);box-shadow:0 0 0 4px rgba(30,58,138,.1);transform:translateY(-1px)}
+    .c-field textarea{min-height:140px;resize:vertical;font-family:inherit;padding-top:1.5rem}
+    .c-field label{position:absolute;left:1rem;top:50%;transform:translateY(-50%);color:#94a3b8;background:#fff;padding:0 .3rem;pointer-events:none;transition:all .2s cubic-bezier(.4,0,.2,1);font-size:.95rem}
+    .c-field textarea ~ label{top:1rem;transform:none}
+    .c-field input:focus + label,.c-field input:not(:placeholder-shown) + label,
+    .c-field textarea:focus + label,.c-field textarea:not(:placeholder-shown) + label,
+    .c-field.has-value label,.c-field select:focus + label,.c-field select.has-value + label{top:-2px;font-size:.72rem;color:var(--navy);font-weight:600;letter-spacing:.04em}
+    .c-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+    .c-check{display:flex;align-items:flex-start;gap:.6rem;font-size:.85rem;color:var(--muted);line-height:1.5}
+    .c-check input{width:18px;height:18px;margin-top:.15rem;accent-color:var(--navy)}
+    .c-submit{justify-self:start;display:inline-flex;align-items:center;gap:.6rem;padding:.95rem 1.8rem;background:var(--ink);color:#fff;border:0;border-radius:999px;font-weight:700;font-size:.95rem;cursor:pointer;position:relative;overflow:hidden;transition:transform .2s,background .2s}
+    .c-submit:hover{background:var(--navy);transform:translateY(-2px) scale(1.02)}
+    .c-submit svg{transition:transform .3s}
+    .c-submit:hover svg{transform:translateX(4px)}
+    .c-submit::after{content:"";position:absolute;top:0;left:-120%;width:60%;height:100%;background:linear-gradient(120deg,transparent 0%,rgba(255,255,255,.35) 50%,transparent 100%);transform:skewX(-20deg);transition:left .7s ease}
+    .c-submit:hover::after{left:140%}
+
+    /* Side panel: map + hours + social */
+    .c-side{display:flex;flex-direction:column;gap:1.2rem}
+    .c-map{border-radius:20px;overflow:hidden;height:280px;border:1px solid var(--line);box-shadow:0 10px 40px -20px rgba(0,0,0,.15);position:relative}
+    .c-map iframe{width:100%;height:100%;border:0;display:block;filter:saturate(.9)}
+    .c-map::after{content:"";position:absolute;inset:0;pointer-events:none;box-shadow:inset 0 0 0 1px rgba(30,58,138,.1);border-radius:20px}
+
+    .c-hours{background:#fff;border:1px solid var(--line);border-radius:20px;padding:1.6rem;box-shadow:0 10px 40px -20px rgba(0,0,0,.1)}
+    .c-hours h3{margin:0 0 1rem;font-family:'Playfair Display',serif;font-size:1.15rem;display:flex;align-items:center;gap:.6rem}
+    .c-hours h3 .live{width:10px;height:10px;border-radius:50%;background:#16a34a;animation:cPing 2s ease-out infinite}
+    .c-hours ul{list-style:none;padding:0;margin:0;display:grid;gap:.55rem}
+    .c-hours li{display:flex;justify-content:space-between;font-size:.92rem;padding:.4rem 0;border-bottom:1px dashed #e2e8f0;transition:padding-left .25s}
+    .c-hours li:hover{padding-left:.4rem;color:var(--navy)}
+    .c-hours li.is-today{color:var(--navy);font-weight:700;background:linear-gradient(90deg,rgba(250,204,21,.15),transparent);padding:.4rem .6rem;border-radius:8px;border-bottom-color:transparent;margin:0 -.6rem}
+    .c-hours li span:last-child{color:#475569}
+    .c-hours li.closed span:last-child{color:#dc2626}
+
+    .c-social{background:linear-gradient(135deg,#0f172a,#1e293b);color:#fff;border-radius:20px;padding:1.6rem;box-shadow:0 10px 40px -20px rgba(0,0,0,.25);position:relative;overflow:hidden}
+    .c-social::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 80% 20%,rgba(250,204,21,.2),transparent 60%)}
+    .c-social > *{position:relative}
+    .c-social h3{margin:0 0 .4rem;font-family:'Playfair Display',serif;font-size:1.2rem}
+    .c-social p{margin:0 0 1rem;color:#cbd5e1;font-size:.9rem}
+    .c-social a.tt{display:inline-flex;align-items:center;gap:.7rem;padding:.75rem 1.2rem;background:linear-gradient(90deg,#FE2C55,#25F4EE);color:#fff;border-radius:999px;font-weight:700;text-decoration:none;transition:transform .2s;font-size:.9rem}
+    .c-social a.tt:hover{transform:translateY(-2px) scale(1.03)}
+
+    /* Response badge */
+    .c-badge{display:inline-flex;align-items:center;gap:.45rem;padding:.45rem .85rem;border-radius:999px;background:#dcfce7;color:#15803d;font-size:.78rem;font-weight:600;margin-bottom:1rem}
+    .c-badge svg{animation:cPing 1.8s ease-out infinite}
+
+    /* Success toast */
+    .c-toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(80px);background:#16a34a;color:#fff;padding:.85rem 1.4rem;border-radius:999px;box-shadow:0 20px 40px -10px rgba(22,163,74,.4);font-weight:600;display:flex;align-items:center;gap:.6rem;opacity:0;transition:opacity .3s,transform .4s cubic-bezier(.22,.61,.36,1);z-index:200;pointer-events:none}
+    .c-toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+    @media (max-width:900px){
+      .c-cards__grid{grid-template-columns:repeat(2,1fr)}
+      .c-main__grid{grid-template-columns:1fr}
+      .c-row{grid-template-columns:1fr}
+    }
+    @media (max-width:560px){
+      .c-cards__grid{grid-template-columns:1fr}
+      .c-hero{padding:3.5rem 0 2rem}
+      .c-panel{padding:1.4rem}
+    }
+  </style>
+</head>
+<body>
+  <!-- ==================== Barre d'annonce ==================== -->
+  <div class="announcement" aria-label="Informations boutique">
+    <div class="announcement__track" aria-hidden="true">
+      <span><span class="dot"></span> Livraison offerte d&egrave;s 69&euro; en France</span>
+      <span><span class="dot"></span> Retrait gratuit au magasin de Toulouse &mdash; 58 Rue Jacques Babinet</span>
+      <span><span class="dot"></span> -15% sur la collection Ramadan avec le code <strong>RAMADAN15</strong></span>
+      <span><span class="dot"></span> Paiement en 3&times; sans frais d&egrave;s 100&euro;</span>
+      <span><span class="dot"></span> Livraison offerte d&egrave;s 69&euro; en France</span>
+      <span><span class="dot"></span> Retrait gratuit au magasin de Toulouse &mdash; 58 Rue Jacques Babinet</span>
+      <span><span class="dot"></span> -15% sur la collection Ramadan avec le code <strong>RAMADAN15</strong></span>
+      <span><span class="dot"></span> Paiement en 3&times; sans frais d&egrave;s 100&euro;</span>
+    </div>
+  </div>
+
+  <!-- ==================== Header ==================== -->
+  <header class="header" role="banner">
+    <div class="header__top">
+      <button class="menu-toggle" aria-label="Ouvrir le menu" aria-controls="primary-nav">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+
+      <a class="header__logo brand" href="../index.html" aria-label="DecoShop Toulouse - Accueil">
+        <span class="brand__logo"><img src="../assets/logo.png" alt="DecoShop Toulouse" /></span>
+        <span class="brand__text">
+          <span class="brand__name">DecoShop</span>
+          <span class="brand__city">Toulouse</span>
+        </span>
+      </a>
+
+      <form class="header__search" role="search" action="../index.html" method="get">
+        <div class="search__form">
+          <input type="search" name="q" placeholder="Que recherchez-vous&nbsp;? lanterne, tapis, vaisselle&hellip;" aria-label="Recherche" autocomplete="off" />
+          <button type="submit" aria-label="Rechercher">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7.5"/><path d="M16.5 16.5 21 21"/></svg>
+          </button>
+        </div>
+      </form>
+
+      <div class="header__actions">
+        <a class="header__icon" href="../index.html#magasin" aria-label="Notre magasin">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s-7-5.5-7-12a7 7 0 0 1 14 0c0 6.5-7 12-7 12z"/><circle cx="12" cy="10" r="2.6"/></svg>
+          <span>Magasin</span>
+        </a>
+        <a class="header__icon" href="../index.html" aria-label="Mon compte">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-3.5 4.5-5.5 8-5.5s6.5 2 8 5.5"/></svg>
+          <span>Compte</span>
+        </a>
+        <a class="header__icon" href="../index.html" aria-label="Panier">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h18l-1.5 12.5a1.5 1.5 0 0 1-1.5 1.3H6a1.5 1.5 0 0 1-1.5-1.3L3 7z"/><path d="M8 7V5.5A4 4 0 0 1 16 5.5V7"/></svg>
+          <span>Panier</span>
+          <span class="cart-count" hidden>0</span>
+        </a>
+      </div>
+    </div>
+
+    <nav class="nav" id="primary-nav" aria-label="Navigation principale">
+      <ul class="nav__list">
+        <li class="nav__item"><a class="nav__link" href="../index.html">Accueil</a></li>
+
+        <li class="nav__item">
+          <a class="nav__link" href="../collections/salon.html">Salon
+            <svg class="caret" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 7.5 10 12.5 15 7.5"/></svg>
+          </a>
+          <div class="mega">
+            <div class="mega__col">
+              <a class="mega__tile" href="../collections/tapis.html">
+                <img src="../assets/img/photos/col-tapis.jpg" alt="Tapis berb&egrave;res" loading="lazy" />
+                <span>Tapis</span>
+              </a>
+            </div>
+            <div class="mega__col">
+              <h6>Mobilier d'appoint</h6>
+              <ul>
+                <li><a href="../collections/salon.html">Tables basses</a></li>
+                <li><a href="../collections/salon.html">Consoles &amp; entr&eacute;es</a></li>
+                <li><a href="../collections/salon.html">&Eacute;tag&egrave;res &amp; biblioth&egrave;ques</a></li>
+                <li><a href="../collections/salon.html">Poufs &amp; assises</a></li>
+              </ul>
+            </div>
+            <div class="mega__col">
+              <h6>D&eacute;co murale</h6>
+              <ul>
+                <li><a href="../collections/calligraphie.html">Cadres &amp; tableaux</a></li>
+                <li><a href="../collections/salon.html">Miroirs</a></li>
+                <li><a href="../collections/salon.html">Horloges</a></li>
+                <li><a href="../collections/calligraphie.html">Calligraphie arabe</a></li>
+              </ul>
+            </div>
+            <div class="mega__col">
+              <h6>Luminaires</h6>
+              <ul>
+                <li><a href="../collections/lanternes.html">Lanternes marocaines</a></li>
+                <li><a href="../collections/lanternes.html">Suspensions</a></li>
+                <li><a href="../collections/lanternes.html">Lampadaires</a></li>
+                <li><a href="../collections/lanternes.html">Bougies &amp; photophores</a></li>
+              </ul>
+            </div>
+          </div>
+        </li>
+
+        <li class="nav__item">
+          <a class="nav__link" href="../collections/arts-de-la-table.html">Arts de la table
+            <svg class="caret" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 7.5 10 12.5 15 7.5"/></svg>
+          </a>
+          <div class="mega">
+            <div class="mega__col">
+              <a class="mega__tile" href="../collections/vaisselle-orientale.html">
+                <img src="../assets/img/photos/col-vaisselle.jpg" alt="Vaisselle orientale" loading="lazy"/>
+                <span>Vaisselle orientale</span>
+              </a>
+            </div>
+            <div class="mega__col">
+              <h6>Service &agrave; th&eacute;</h6>
+              <ul>
+                <li><a href="../collections/vaisselle-orientale.html">Th&eacute;i&egrave;res</a></li>
+                <li><a href="../collections/vaisselle-orientale.html">Verres &agrave; th&eacute;</a></li>
+                <li><a href="../collections/vaisselle-orientale.html">Plateaux grav&eacute;s</a></li>
+                <li><a href="../collections/vaisselle-orientale.html">Sucriers</a></li>
+              </ul>
+            </div>
+            <div class="mega__col">
+              <h6>Vaisselle</h6>
+              <ul>
+                <li><a href="../collections/vaisselle-orientale.html">Tajines</a></li>
+                <li><a href="../collections/vaisselle-orientale.html">Assiettes peintes main</a></li>
+                <li><a href="../collections/vaisselle-orientale.html">Bols &amp; mezz&eacute;s</a></li>
+                <li><a href="../collections/vaisselle-orientale.html">Couverts dor&eacute;s</a></li>
+              </ul>
+            </div>
+            <div class="mega__col">
+              <h6>Textile de table</h6>
+              <ul>
+                <li><a href="../collections/arts-de-la-table.html">Nappes brod&eacute;es</a></li>
+                <li><a href="../collections/arts-de-la-table.html">Sets de table</a></li>
+                <li><a href="../collections/arts-de-la-table.html">Serviettes</a></li>
+                <li><a href="../collections/arts-de-la-table.html">Chemins de table</a></li>
+              </ul>
+            </div>
+          </div>
+        </li>
+
+        <li class="nav__item">
+          <a class="nav__link nav__link--hot" href="../collections/ramadan.html">Ramadan &amp; A&iuml;d</a>
+        </li>
+        <li class="nav__item"><a class="nav__link" href="../collections/cadeaux.html">Cadeaux</a></li>
+        <li class="nav__item"><a class="nav__link" href="../collections/nouveautes.html">Nouveaut&eacute;s</a></li>
+        <li class="nav__item"><a class="nav__link" href="../collections/soldes.html">Promos</a></li>
+        <li class="nav__item"><a class="nav__link" href="../index.html#magasin">Notre magasin</a></li>
+        <li class="nav__item"><a class="nav__link" href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="c-hero">
+      <div class="c-hero__shapes" aria-hidden="true">
+        <i></i><i></i><i></i><i></i>
+      </div>
+      <div class="container">
+        <span class="c-hero__eyebrow"><span class="dot"></span> &Eacute;quipe disponible maintenant</span>
+        <h1>Parlons <em>d&eacute;co</em>.</h1>
+        <p>Une question sur un produit, une id&eacute;e de projet, un coup de pouce pour agencer votre salon&nbsp;? Notre &eacute;quipe r&eacute;pond en moins de 24&nbsp;h&nbsp;&mdash; souvent beaucoup plus vite.</p>
+      </div>
+    </section>
+
+    <!-- CARDS -->
+    <section class="c-cards container" data-reveal>
+      <div class="c-cards__grid">
+        <a href="tel:+33767278625" class="c-card c-card--phone">
+          <div class="c-card__icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </div>
+          <h3>T&eacute;l&eacute;phone</h3>
+          <span class="big">07 67 27 86 25</span>
+          <small>Lun &ndash; Sam &middot; 10h &ndash; 19h</small>
+          <span class="c-chip"><span class="live"></span> Ouvert maintenant</span>
+        </a>
+
+        <a href="mailto:contact@decoshop-toulouse.fr" class="c-card c-card--email">
+          <div class="c-card__icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <h3>Email</h3>
+          <span class="big">contact@decoshop-toulouse.fr</span>
+          <small>R&eacute;ponse sous 24&nbsp;h ouvr&eacute;es</small>
+          <span class="c-chip"><span class="live"></span> Actif</span>
+        </a>
+
+        <a href="https://www.google.com/maps/dir/?api=1&destination=58+Rue+Jacques+Babinet+31100+Toulouse" target="_blank" rel="noopener" class="c-card c-card--shop">
+          <div class="c-card__icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <h3>Magasin</h3>
+          <span class="big">58 Rue Jacques Babinet</span>
+          <small>31100 Toulouse &mdash; Rangueil</small>
+          <span class="c-chip">Itin&eacute;raire &rarr;</span>
+        </a>
+
+        <a href="https://www.tiktok.com/@decoshoptoulouse" target="_blank" rel="noopener" class="c-card c-card--tiktok">
+          <div class="c-card__icon">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5.8 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1.84-.1z"/></svg>
+          </div>
+          <h3>TikTok</h3>
+          <span class="big">@decoshoptoulouse</span>
+          <small>Nouveaut&eacute;s &amp; inspirations en vid&eacute;o</small>
+          <span class="c-chip"><span class="live"></span> En direct</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- MAIN: form + side -->
+    <section class="c-main container">
+      <div class="c-main__grid">
+        <div class="c-panel" data-reveal>
+          <span class="c-badge">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="6"/></svg>
+            R&eacute;ponse moyenne&nbsp;: 2&nbsp;h
+          </span>
+          <h2>Envoyez-nous un message</h2>
+          <p class="sub">Tous les champs marqu&eacute;s * sont obligatoires. Nous revenons vers vous tr&egrave;s vite.</p>
+
+          <form class="c-form" id="contactForm" novalidate>
+            <div class="c-row">
+              <div class="c-field"><input id="f-nom" name="nom" required placeholder=" " autocomplete="name" /><label for="f-nom">Votre nom *</label></div>
+              <div class="c-field"><input id="f-email" name="email" type="email" required placeholder=" " autocomplete="email" /><label for="f-email">Email *</label></div>
+            </div>
+            <div class="c-row">
+              <div class="c-field"><input id="f-tel" name="tel" type="tel" placeholder=" " autocomplete="tel" /><label for="f-tel">T&eacute;l&eacute;phone</label></div>
+              <div class="c-field">
+                <select id="f-sujet" name="sujet" required>
+                  <option value="" disabled selected hidden></option>
+                  <option>Question sur un produit</option>
+                  <option>Suivi de commande</option>
+                  <option>Retour / remboursement</option>
+                  <option>Conseil d&eacute;co / projet</option>
+                  <option>Partenariat / B2B</option>
+                  <option>Presse</option>
+                  <option>Autre</option>
+                </select>
+                <label for="f-sujet">Sujet *</label>
+              </div>
+            </div>
+            <div class="c-field">
+              <textarea id="f-msg" name="message" required placeholder=" "></textarea>
+              <label for="f-msg">Votre message *</label>
+            </div>
+            <label class="c-check">
+              <input type="checkbox" required />
+              <span>J&rsquo;accepte que mes donn&eacute;es soient utilis&eacute;es pour traiter ma demande. Voir notre <a href="confidentialite.html">politique de confidentialit&eacute;</a>.</span>
+            </label>
+            <button class="c-submit" type="submit">
+              Envoyer le message
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </button>
+          </form>
+        </div>
+
+        <aside class="c-side">
+          <!-- Map -->
+          <div class="c-map" data-reveal>
+            <iframe
+              title="Carte DecoShop Toulouse"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              src="https://www.openstreetmap.org/export/embed.html?bbox=1.4395,43.5580,1.4505,43.5640&layer=mapnik&marker=43.5610,1.4450"></iframe>
+          </div>
+
+          <!-- Hours -->
+          <div class="c-hours" data-reveal>
+            <h3><span class="live"></span> Nos horaires d&rsquo;ouverture</h3>
+            <ul id="hoursList">
+              <li data-day="1"><span>Lundi</span><span>10h &ndash; 19h</span></li>
+              <li data-day="2"><span>Mardi</span><span>10h &ndash; 19h</span></li>
+              <li data-day="3"><span>Mercredi</span><span>10h &ndash; 19h</span></li>
+              <li data-day="4"><span>Jeudi</span><span>10h &ndash; 19h</span></li>
+              <li data-day="5"><span>Vendredi</span><span>10h &ndash; 19h</span></li>
+              <li data-day="6"><span>Samedi</span><span>10h &ndash; 19h</span></li>
+              <li data-day="0" class="closed"><span>Dimanche</span><span>Ferm&eacute;</span></li>
+            </ul>
+          </div>
+
+          <!-- TikTok social -->
+          <div class="c-social" data-reveal>
+            <h3>Suivez-nous sur TikTok</h3>
+            <p>Toutes nos nouveaut&eacute;s, inspirations d&eacute;co et coulisses du magasin, en vid&eacute;o.</p>
+            <a class="tt" href="https://www.tiktok.com/@decoshoptoulouse" target="_blank" rel="noopener">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5.8 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1.84-.1z"/></svg>
+              @decoshoptoulouse
+            </a>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__bottom">
+        <div>&copy; <span id="year">2026</span> DecoShop Toulouse. Tous droits r&eacute;serv&eacute;s.</div>
+        <div class="footer__links">
+          <a href="mentions-legales.html">Mentions l&eacute;gales</a> &middot;
+          <a href="cgv.html">CGV</a> &middot;
+          <a href="confidentialite.html">Confidentialit&eacute;</a> &middot;
+          <a href="cookies.html">Cookies</a>
+        </div>
+        <div class="footer__credit">Site d&eacute;velopp&eacute; par <a href="https://microdidact.com/" target="_blank" rel="noopener" class="credit-link">Microdidact</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast -->
+  <div class="c-toast" id="toast" role="status" aria-live="polite">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+    <span>Message envoy&eacute;&nbsp;! Nous revenons vers vous tr&egrave;s vite.</span>
+  </div>
+
+  <script src="../assets/js/app.js" defer></script>
+  <script>
+    // Highlight today's opening hours
+    (function(){
+      var today=new Date().getDay();
+      document.querySelectorAll('#hoursList li').forEach(function(li){
+        if(Number(li.dataset.day)===today) li.classList.add('is-today');
+      });
+      // Select: keep label floated when a value is chosen
+      document.querySelectorAll('.c-field select').forEach(function(s){
+        s.addEventListener('change',function(){ s.classList.toggle('has-value',!!s.value); });
+      });
+      // Form submit (demo): toast + reset
+      var form=document.getElementById('contactForm');
+      var toast=document.getElementById('toast');
+      if(form){
+        form.addEventListener('submit',function(e){
+          e.preventDefault();
+          if(!form.checkValidity()){form.reportValidity();return;}
+          toast.classList.add('show');
+          form.reset();
+          document.querySelectorAll('.c-field select').forEach(function(s){s.classList.remove('has-value');});
+          setTimeout(function(){ toast.classList.remove('show'); },3500);
+        });
+      }
+    })();
+  </script>
+</body>
+</html>

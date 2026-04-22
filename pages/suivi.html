@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#1E3A8A" />
+  <title>Suivi de commande &mdash; DecoShop Toulouse</title>
+  <meta name="description" content="Suivez votre commande DecoShop Toulouse : statuts, numero de suivi, service client." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://decoshop-toulouse.fr/pages/suivi" />
+  <link rel="icon" href="../favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+  <link rel="stylesheet" href="_shared.css" />
+</head>
+<body>
+  <!-- ==================== Barre d'annonce ==================== -->
+  <div class="announcement" aria-label="Informations boutique">
+    <div class="announcement__track" aria-hidden="true">
+      <span><span class="dot"></span> Livraison offerte d&egrave;s 69&euro; en France</span>
+      <span><span class="dot"></span> Retrait gratuit au magasin de Toulouse &mdash; 58 Rue Jacques Babinet</span>
+      <span><span class="dot"></span> -15% sur la collection Ramadan avec le code <strong>RAMADAN15</strong></span>
+      <span><span class="dot"></span> Paiement en 3&times; sans frais d&egrave;s 100&euro;</span>
+      <span><span class="dot"></span> Livraison offerte d&egrave;s 69&euro; en France</span>
+      <span><span class="dot"></span> Retrait gratuit au magasin de Toulouse &mdash; 58 Rue Jacques Babinet</span>
+      <span><span class="dot"></span> -15% sur la collection Ramadan avec le code <strong>RAMADAN15</strong></span>
+      <span><span class="dot"></span> Paiement en 3&times; sans frais d&egrave;s 100&euro;</span>
+    </div>
+  </div>
+
+  <!-- ==================== Header ==================== -->
+  <header class="header" role="banner">
+    <div class="header__top">
+      <button class="menu-toggle" aria-label="Ouvrir le menu" aria-controls="primary-nav">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+
+      <a class="header__logo brand" href="../index.html" aria-label="DecoShop Toulouse - Accueil">
+        <span class="brand__logo"><img src="../assets/logo.png" alt="DecoShop Toulouse" /></span>
+        <span class="brand__text">
+          <span class="brand__name">DecoShop</span>
+          <span class="brand__city">Toulouse</span>
+        </span>
+      </a>
+
+      <form class="header__search" role="search" action="../index.html" method="get">
+        <div class="search__form">
+          <input type="search" name="q" placeholder="Que recherchez-vous&nbsp;? lanterne, tapis, vaisselle&hellip;" aria-label="Recherche" autocomplete="off" />
+          <button type="submit" aria-label="Rechercher">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7.5"/><path d="M16.5 16.5 21 21"/></svg>
+          </button>
+        </div>
+      </form>
+
+      <div class="header__actions">
+        <a class="header__icon" href="../index.html#magasin" aria-label="Notre magasin">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s-7-5.5-7-12a7 7 0 0 1 14 0c0 6.5-7 12-7 12z"/><circle cx="12" cy="10" r="2.6"/></svg>
+          <span>Magasin</span>
+        </a>
+        <a class="header__icon" href="../index.html" aria-label="Mon compte">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-3.5 4.5-5.5 8-5.5s6.5 2 8 5.5"/></svg>
+          <span>Compte</span>
+        </a>
+        <a class="header__icon" href="../index.html" aria-label="Panier">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h18l-1.5 12.5a1.5 1.5 0 0 1-1.5 1.3H6a1.5 1.5 0 0 1-1.5-1.3L3 7z"/><path d="M8 7V5.5A4 4 0 0 1 16 5.5V7"/></svg>
+          <span>Panier</span>
+          <span class="cart-count" hidden>0</span>
+        </a>
+      </div>
+    </div>
+
+    <nav class="nav" id="primary-nav" aria-label="Navigation principale">
+      <ul class="nav__list">
+        <li class="nav__item"><a class="nav__link" href="../index.html">Accueil</a></li>
+
+        <li class="nav__item">
+          <a class="nav__link" href="../collections/salon.html">Salon
+            <svg class="caret" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 7.5 10 12.5 15 7.5"/></svg>
+          </a>
+          <div class="mega">
+            <div class="mega__col">
+              <a class="mega__tile" href="../collections/tapis.html">
+                <img src="../assets/img/photos/col-tapis.jpg" alt="Tapis berb&egrave;res" loading="lazy" />
+                <span>Tapis</span>
+              </a>
+            </div>
+            <div class="mega__col">
+              <h6>Mobilier d'appoint</h6>
+              <ul>
+                <li><a href="../collections/salon.html">Tables basses</a></li>
+                <li><a href="../collections/salon.html">Consoles &amp; entr&eacute;es</a></li>
+                <li><a href="../collections/salon.html">&Eacute;tag&egrave;res &amp; biblioth&egrave;ques</a></li>
+                <li><a href="../collections/salon.html">Poufs &amp; assises</a></li>
+              </ul>
+            </div>
+            <div class="mega__col">
+              <h6>D&eacute;co murale</h6>
+              <ul>
+                <li><a href="../collections/calligraphie.html">Cadres &amp; tableaux</a></li>
+                <li><a href="../collections/salon.html">Miroirs</a></li>
+                <li><a href="../collections/salon.html">Horloges</a></li>
+                <li><a href="../collections/calligraphie.html">Calligraphie arabe</a></li>
+              </ul>
+            </div>
+            <div class="mega__col">
+              <h6>Luminaires</h6>
+              <ul>
+                <li><a href="../collections/lanternes.html">Lanternes marocaines</a></li>
+                <li><a href="../collections/lanternes.html">Suspensions</a></li>
+                <li><a href="../collections/lanternes.html">Lampadaires</a></li>
+                <li><a href="../collections/lanternes.html">Bougies &amp; photophores</a></li>
+              </ul>
+            </div>
+          </div>
+        </li>
+
+        <li class="nav__item">
+          <a class="nav__link" href="../collections/arts-de-la-table.html">Arts de la table
+            <svg class="caret" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 7.5 10 12.5 15 7.5"/></svg>
+          </a>
+          <div class="mega">
+            <div class="mega__col">
+              <a class="mega__tile" href="../collections/vaisselle-orientale.html">
+                <img src="../assets/img/photos/col-vaisselle.jpg" alt="Vaisselle orientale" loading="lazy"/>
+                <span>Vaisselle orientale</span>
+              </a>
+            </div>
+            <div class="mega__col">
+              <h6>Service &agrave; th&eacute;</h6>
+              <ul>
+                <li><a href="../collections/vaisselle-orientale.html">Th&eacute;i&egrave;res</a></li>
+                <li><a href="../collections/vaisselle-orientale.html">Verres &agrave; th&eacute;</a></li>
+                <li><a href="../collections/vaisselle-orientale.html">Plateaux grav&eacute;s</a></li>
+                <li><a href="../collections/vaisselle-orientale.html">Sucriers</a></li>
+              </ul>
+            </div>
+            <div class="mega__col">
+              <h6>Vaisselle</h6>
+              <ul>
+                <li><a href="../collections/vaisselle-orientale.html">Tajines</a></li>
+                <li><a href="../collections/vaisselle-orientale.html">Assiettes peintes main</a></li>
+                <li><a href="../collections/vaisselle-orientale.html">Bols &amp; mezz&eacute;s</a></li>
+                <li><a href="../collections/vaisselle-orientale.html">Couverts dor&eacute;s</a></li>
+              </ul>
+            </div>
+            <div class="mega__col">
+              <h6>Textile de table</h6>
+              <ul>
+                <li><a href="../collections/arts-de-la-table.html">Nappes brod&eacute;es</a></li>
+                <li><a href="../collections/arts-de-la-table.html">Sets de table</a></li>
+                <li><a href="../collections/arts-de-la-table.html">Serviettes</a></li>
+                <li><a href="../collections/arts-de-la-table.html">Chemins de table</a></li>
+              </ul>
+            </div>
+          </div>
+        </li>
+
+        <li class="nav__item">
+          <a class="nav__link nav__link--hot" href="../collections/ramadan.html">Ramadan &amp; A&iuml;d</a>
+        </li>
+        <li class="nav__item"><a class="nav__link" href="../collections/cadeaux.html">Cadeaux</a></li>
+        <li class="nav__item"><a class="nav__link" href="../collections/nouveautes.html">Nouveaut&eacute;s</a></li>
+        <li class="nav__item"><a class="nav__link" href="../collections/soldes.html">Promos</a></li>
+        <li class="nav__item"><a class="nav__link" href="../index.html#magasin">Notre magasin</a></li>
+        <li class="nav__item"><a class="nav__link" href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main class="container">
+    <article class="legal" data-reveal>
+      <h1>Suivi de commande</h1>
+      <p class="lead">Retrouvez le statut de votre commande en quelques secondes.</p>
+
+      <div class="callout"><p><strong>Astuce&nbsp;:</strong> vous trouverez votre num&eacute;ro de commande dans l&rsquo;email de confirmation (format <code>DS-2026-XXXXX</code>).</p></div>
+
+      <h2>Suivre ma commande</h2>
+      <form class="contact-form" action="#" method="get" novalidate>
+        <div class="row2">
+          <div>
+            <label for="s-num">Num&eacute;ro de commande *</label>
+            <input id="s-num" name="order" placeholder="DS-2026-XXXXX" required />
+          </div>
+          <div>
+            <label for="s-email">Email de commande *</label>
+            <input id="s-email" name="email" type="email" required />
+          </div>
+        </div>
+        <button class="btn btn--primary" type="submit">Voir le statut</button>
+      </form>
+
+      <h2>Les diff&eacute;rents statuts</h2>
+      <table>
+        <thead><tr><th>Statut</th><th>Ce que cela signifie</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Paiement confirm&eacute;</strong></td><td>Votre paiement est valid&eacute;, nous pr&eacute;parons votre colis.</td></tr>
+          <tr><td><strong>En pr&eacute;paration</strong></td><td>Vos produits sont en cours de pr&eacute;paration &agrave; notre entrep&ocirc;t de Toulouse.</td></tr>
+          <tr><td><strong>Exp&eacute;di&eacute;</strong></td><td>Votre colis est confi&eacute; au transporteur. Vous recevez un num&eacute;ro de suivi par email.</td></tr>
+          <tr><td><strong>En livraison</strong></td><td>Votre colis est en tourn&eacute;e. Le livreur passera aujourd&rsquo;hui ou demain.</td></tr>
+          <tr><td><strong>Livr&eacute;</strong></td><td>Colis remis au destinataire ou d&eacute;pos&eacute; en point relais.</td></tr>
+          <tr><td><strong>En retour</strong></td><td>Vous avez demand&eacute; un retour&nbsp;; nous attendons le colis pour traitement.</td></tr>
+          <tr><td><strong>Rembours&eacute;</strong></td><td>Le remboursement a &eacute;t&eacute; initi&eacute;. Les fonds apparaissent sous 3 &agrave; 5 jours ouvr&eacute;s.</td></tr>
+        </tbody>
+      </table>
+
+      <h2>Un souci avec votre commande&nbsp;?</h2>
+      <p>Notre service client r&eacute;pond du lundi au samedi&nbsp;:</p>
+      <ul>
+        <li>T&eacute;l&eacute;phone&nbsp;: <a href="tel:+33767278625">07 67 27 86 25</a></li>
+        <li>Email&nbsp;: <a href="mailto:contact@decoshop-toulouse.fr">contact@decoshop-toulouse.fr</a></li>
+        <li>Formulaire&nbsp;: <a href="contact.html">Nous contacter</a></li>
+      </ul>
+      <p style="margin-top:3rem;color:var(--muted);font-size:.85rem">Derni&egrave;re mise &agrave; jour&nbsp;: avril 2026</p>
+      <a class="back-top" href="#top">&uarr; Haut de page</a>
+    </article>
+  </main>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__bottom">
+        <div>&copy; <span id="year">2026</span> DecoShop Toulouse. Tous droits r&eacute;serv&eacute;s.</div>
+        <div class="footer__links">
+          <a href="mentions-legales.html">Mentions l&eacute;gales</a> &middot;
+          <a href="cgv.html">CGV</a> &middot;
+          <a href="confidentialite.html">Confidentialit&eacute;</a> &middot;
+          <a href="cookies.html">Cookies</a>
+        </div>
+        <div class="footer__credit">Site d&eacute;velopp&eacute; par <a href="https://microdidact.com/" target="_blank" rel="noopener" class="credit-link">Microdidact</a></div>
+      </div>
+    </div>
+  </footer>
+  <script src="../assets/js/app.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "headers": [
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    },
+    {
+      "source": "/(.*)\\.(jpg|jpeg|png|gif|webp|svg|ico|mp4|webm)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    }
+  ],
+  "redirects": [
+    { "source": "/contact", "destination": "/pages/contact", "permanent": true },
+    { "source": "/faq", "destination": "/pages/faq", "permanent": true },
+    { "source": "/cgv", "destination": "/pages/cgv", "permanent": true }
+  ]
+}

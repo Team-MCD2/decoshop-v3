@@ -1,0 +1,44 @@
+/* Shared styles for all DecoShop /pages/ (CGV, Confidentialité, Cookies, etc.) */
+.legal{padding:3.5rem 0 4rem;max-width:860px;margin:0 auto}
+.legal h1{font-size:clamp(1.8rem,3vw,2.4rem);margin-bottom:.4rem;font-family:'Playfair Display',serif}
+.legal .lead{color:var(--muted);margin-bottom:2rem;font-size:1.05rem}
+.legal h2{margin-top:2.5rem;font-size:1.3rem;border-bottom:2px solid var(--yellow);padding-bottom:.4rem;display:inline-block;font-family:'Playfair Display',serif}
+.legal h3{margin-top:1.5rem;font-size:1.05rem;color:var(--navy)}
+.legal p,.legal li{line-height:1.7;color:#334155}
+.legal ul{padding-left:1.2rem}
+.legal ul li{margin-bottom:.35rem}
+.legal dl{display:grid;grid-template-columns:220px 1fr;gap:.5rem 1.2rem;margin:0}
+.legal dt{font-weight:700;color:var(--ink)}
+.legal dd{margin:0;color:#475569}
+.legal a{color:var(--navy);text-decoration:underline;text-decoration-color:rgba(30,58,138,.3);text-underline-offset:3px}
+.legal a:hover{text-decoration-color:var(--navy)}
+.legal .callout{background:#fff8e1;border-left:4px solid var(--yellow);padding:1rem 1.2rem;border-radius:8px;margin:1.2rem 0}
+.legal .callout p:last-child{margin-bottom:0}
+.legal .grid2{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:1rem}
+.legal .card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:1.4rem;box-shadow:0 2px 8px rgba(0,0,0,.04)}
+.legal .card h3{margin-top:0}
+.legal table{width:100%;border-collapse:collapse;margin:1rem 0;font-size:.9rem}
+.legal table th,.legal table td{padding:.7rem .9rem;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+.legal table th{background:#f8fafc;font-weight:700;color:var(--ink)}
+.back-top{display:inline-block;margin-top:2rem;color:var(--navy);font-weight:600;text-decoration:none}
+.back-top:hover{color:var(--navy-700);text-decoration:underline}
+@media (max-width:640px){.legal dl{grid-template-columns:1fr}.legal .grid2{grid-template-columns:1fr}}
+
+/* Contact form styling */
+.contact-form{display:grid;gap:1rem;margin-top:1rem}
+.contact-form label{display:block;font-weight:600;color:var(--ink);margin-bottom:.3rem;font-size:.9rem}
+.contact-form input,.contact-form textarea,.contact-form select{width:100%;padding:.75rem 1rem;border:1px solid var(--line);border-radius:10px;font:inherit;background:#fff;transition:border-color .2s,box-shadow .2s}
+.contact-form input:focus,.contact-form textarea:focus,.contact-form select:focus{outline:0;border-color:var(--navy);box-shadow:0 0 0 3px rgba(30,58,138,.1)}
+.contact-form textarea{min-height:140px;resize:vertical;font-family:inherit}
+.contact-form .row2{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.contact-form button{justify-self:start}
+@media (max-width:560px){.contact-form .row2{grid-template-columns:1fr}}
+
+/* FAQ accordion */
+.faq-item{border-bottom:1px solid var(--line);padding:1.1rem 0}
+.faq-item summary{cursor:pointer;font-weight:600;color:var(--ink);list-style:none;position:relative;padding-right:2rem;font-size:1rem}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary::after{content:"+";position:absolute;right:0;top:0;font-size:1.5rem;line-height:1;color:var(--navy);transition:transform .25s}
+.faq-item[open] summary::after{content:"\2013"}
+.faq-item[open] summary{color:var(--navy)}
+.faq-item p{margin:.8rem 0 0}
