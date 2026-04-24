@@ -18,6 +18,14 @@
   "redirects": [
     { "source": "/contact", "destination": "/pages/contact", "permanent": true },
     { "source": "/faq", "destination": "/pages/faq", "permanent": true },
-    { "source": "/cgv", "destination": "/pages/cgv", "permanent": true }
+    { "source": "/cgv", "destination": "/pages/cgv", "permanent": true },
+    { "source": "/favoris", "destination": "/pages/favoris", "permanent": true },
+    { "source": "/livraison", "destination": "/pages/livraison", "permanent": true },
+    { "source": "/retours", "destination": "/pages/retours", "permanent": true },
+    { "source": "/suivi", "destination": "/pages/suivi", "permanent": true },
+    { "source": "/a-propos", "destination": "/pages/a-propos", "permanent": true },
+    { "source": "/mentions-legales", "destination": "/pages/mentions-legales", "permanent": true },
+    { "source": "/confidentialite", "destination": "/pages/confidentialite", "permanent": true },
+    { "source": "/cookies", "destination": "/pages/cookies", "permanent": true }
   ]
 }
