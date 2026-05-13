@@ -238,16 +238,17 @@ function Build-Product($data) {
   $rating = $data.rating
   $stars = '&starf;' * [int][math]::Floor($rating) + '&star;' * (5 - [int][math]::Floor($rating))
   $count = $data.reviews
+  $slug = if ($data.slug) { "../products/$($data.slug)" } else { "#" }
   return @"
 <article class="pcard" data-price="$($data.price)" data-rating="$rating" data-tags="$tags"$(if($data.isNew){' data-new="1"'})>
-  <a class="pcard__media" href="#" aria-label="$($data.title)">
+  <a class="pcard__media" href="$slug" aria-label="$($data.title)">
     $badgeHtml
     <img src="../$($data.img)" alt="$($data.title)" loading="lazy" />
   </a>
   <button class="pcard__fav" aria-label="Ajouter aux favoris"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8z"/></svg></button>
   <div class="pcard__body">
     <span class="pcard__cat">$($data.cat)</span>
-    <h3 class="pcard__title">$($data.title)</h3>
+    <h3 class="pcard__title"><a href="$slug">$($data.title)</a></h3>
     <div class="pcard__rating">$stars <span style="color:var(--muted)">($count)</span></div>
     $priceHtml
     <button class="pcard__add" data-label="Ajouter au panier">Ajouter au panier</button>
@@ -341,8 +342,8 @@ $collections += @{
   chips = @('Tables', 'Luminaires', 'D&eacute;co murale', 'Bougies')
   products = @(
     @{ title='Plateau grav&eacute; Alger &mdash; m&eacute;tal argent&eacute; &Oslash;50'; cat='Arts de la table'; img=$IMG.prodPlateau; price='69,00'; rating=5; reviews=42; badge='Best'; tags=@('tables'); isNew=$false }
-    @{ title='Service &agrave; th&eacute; Andalus &mdash; th&eacute;i&egrave;re + 6 verres dor&eacute;s'; cat='Arts de la table'; img=$IMG.vaisselle; price='89,00'; rating=5; reviews=128; tags=@('tables') }
-    @{ title='Lanterne Fez &mdash; laiton dor&eacute;'; cat='Luminaires'; img=$IMG.prodLant1; price='59,90'; rating=5; reviews=87; badge='Nouveau'; tags=@('luminaires'); isNew=$true }
+    @{ title='Service &agrave; th&eacute; Andalus &mdash; th&eacute;i&egrave;re + 6 verres dor&eacute;s'; cat='Arts de la table'; img=$IMG.vaisselle; price='89,00'; rating=5; reviews=128; tags=@('tables'); slug='service-a-the-andalus' }
+    @{ title='Lanterne Fez &mdash; laiton dor&eacute;'; cat='Luminaires'; img=$IMG.prodLant1; price='59,90'; rating=5; reviews=87; badge='Nouveau'; tags=@('luminaires'); isNew=$true; slug='lanterne-fez' }
     @{ title='Cadre calligraphie Bismillah &mdash; dor&eacute;'; cat='D&eacute;co murale'; img=$IMG.calligraphie; price='39,00'; oldPrice='46,00'; rating=5; reviews=54; badge='-15%'; tags=@('d-co-murale') }
     @{ title='Photophore &eacute;toile ajour&eacute;e &mdash; cuivre (x3)'; cat='Bougies'; img=$IMG.prodPhoto; price='24,90'; rating=4; reviews=31; tags=@('bougies') }
     @{ title='Tajine d&eacute;cor Safi &mdash; peint main &Oslash;32'; cat='Arts de la table'; img=$IMG.prodTajine; price='34,90'; oldPrice='46,90'; rating=5; reviews=78; badge='-25%'; tags=@('tables') }
@@ -371,7 +372,7 @@ $collections += @{
   shipping = '4,90&euro;'
   chips = @('Beni Ouarain', 'Azilal', 'Boujaad', 'Kilim', 'Runner')
   products = @(
-    @{ title='Tapis Beni Ouarain &mdash; laine naturelle 200x290'; cat='Tapis'; img=$IMG.tapis; price='239,00'; oldPrice='299,00'; rating=5; reviews=87; badge='-20%'; tags=@('beni-ouarain') }
+    @{ title='Tapis Beni Ouarain &mdash; laine naturelle 200x290'; cat='Tapis'; img=$IMG.tapis; price='239,00'; oldPrice='299,00'; rating=5; reviews=87; badge='-20%'; tags=@('beni-ouarain'); slug='tapis-berbere-atlas' }
     @{ title='Tapis Azilal rouge &mdash; motifs losanges 170x240'; cat='Tapis'; img=$IMG.prodTapis; price='189,00'; rating=5; reviews=42; tags=@('azilal') }
     @{ title='Tapis Boujaad vintage &mdash; 160x230'; cat='Tapis'; img=$IMG.tapis; price='259,00'; rating=5; reviews=31; badge='Nouveau'; tags=@('boujaad'); isNew=$true }
     @{ title='Kilim r&eacute;versible &mdash; tons sable 200x300'; cat='Tapis'; img=$IMG.prodTapis; price='169,00'; rating=4; reviews=26; tags=@('kilim') }
@@ -497,7 +498,7 @@ $collections += @{
   products = @(
     @{ title='Tapis Beni Ouarain &mdash; laine naturelle 200x290'; cat='Tapis'; img=$IMG.tapis; price='239,00'; oldPrice='299,00'; rating=5; reviews=87; badge='-20%'; tags=@('tapis') }
     @{ title='Pouf cuir Marrakech &mdash; tress&eacute; main'; cat='Assises'; img=$IMG.prodPouf; price='149,00'; rating=5; reviews=42; tags=@('poufs') }
-    @{ title='Miroir soleil M&eacute;dina &mdash; laiton bross&eacute; &Oslash;80'; cat='Miroirs'; img=$IMG.prodMiroir; price='119,00'; rating=5; reviews=54; badge='Nouveau'; tags=@('miroirs'); isNew=$true }
+    @{ title='Miroir soleil M&eacute;dina &mdash; laiton bross&eacute; &Oslash;80'; cat='Miroirs'; img=$IMG.prodMiroir; price='119,00'; rating=5; reviews=54; badge='Nouveau'; tags=@('miroirs'); isNew=$true; slug='miroir-soleil-medina' }
     @{ title='Coussin Kilim brod&eacute; main &mdash; 45x45'; cat='Textile'; img=$IMG.prodCoussin; price='29,90'; rating=4; reviews=78; tags=@('coussins') }
     @{ title='Lanterne de sol Marrakech &mdash; H90'; cat='Luminaires'; img=$IMG.prodLant1; price='149,00'; rating=5; reviews=18; tags=@('luminaires') }
     @{ title='Lot de 3 coussins ethniques &mdash; 40x40'; cat='Textile'; img=$IMG.prodCoussin; price='59,00'; oldPrice='75,00'; rating=4; reviews=31; badge='-21%'; tags=@('coussins') }
