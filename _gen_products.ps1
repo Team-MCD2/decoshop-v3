@@ -1,0 +1,322 @@
+$ErrorActionPreference = 'Stop'
+$root = Join-Path $PSScriptRoot 'products'
+if (-not (Test-Path $root)) { New-Item -ItemType Directory -Force -Path $root | Out-Null }
+
+# ============== TEMPLATE ==============
+$template = @'
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#1E3A8A" />
+  <title>__TITLE__ &mdash; DecoShop Toulouse</title>
+  <meta name="description" content="__DESC__" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://decoshop-toulouse.fr/products/__SLUG__" />
+  <meta property="og:type" content="product" />
+  <meta property="og:title" content="__TITLE__ | DecoShop Toulouse" />
+  <meta property="og:description" content="__DESC__" />
+  <meta property="og:image" content="https://decoshop-toulouse.fr/__IMG__" />
+  <link rel="icon" href="../favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+  <style>
+    .product-layout { display: grid; grid-template-columns: 1.1fr 1fr; gap: 4rem; margin: 3rem 0; align-items: start; }
+    .product-media { position: sticky; top: 120px; }
+    .product-media__main { border-radius: var(--radius); overflow: hidden; background: var(--cream); aspect-ratio: 1; border: 1px solid var(--line); }
+    .product-media__main img { width: 100%; height: 100%; object-fit: cover; }
+    
+    .product-info__crumbs { display: flex; gap: .5rem; font-size: .85rem; color: var(--muted); margin-bottom: 1.5rem; }
+    .product-info__crumbs a:hover { color: var(--navy); text-decoration: underline; }
+    .product-info__cat { color: var(--navy); font-weight: 700; letter-spacing: .1em; text-transform: uppercase; font-size: .75rem; margin-bottom: .5rem; display: block; }
+    .product-info__title { font-size: clamp(1.8rem, 3vw, 2.6rem); margin-bottom: 1rem; line-height: 1.1; }
+    .product-info__rating { display: flex; align-items: center; gap: .5rem; color: var(--yellow-600); margin-bottom: 1.5rem; }
+    .product-info__price { display: flex; align-items: baseline; gap: 1rem; margin-bottom: 2rem; }
+    .product-info__price .price { font-size: 2rem; font-weight: 800; color: var(--ink); font-family: 'DM Sans'; }
+    .product-info__price .price--sale { color: #dc2626; }
+    .product-info__price .price--strike { text-decoration: line-through; color: var(--muted); font-size: 1.2rem; font-weight: 500; }
+    
+    .product-info__short { font-size: 1.05rem; color: var(--muted); line-height: 1.6; margin-bottom: 2rem; border-bottom: 1px solid var(--line); padding-bottom: 2rem; }
+    
+    .product-form { display: flex; flex-direction: column; gap: 1.5rem; margin-bottom: 2.5rem; }
+    .product-form__qty { display: flex; align-items: center; gap: 1rem; }
+    .qty-input { display: flex; align-items: center; border: 1.5px solid var(--line); border-radius: 999px; padding: .4rem; }
+    .qty-input button { width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; transition: background .2s; }
+    .qty-input button:hover { background: var(--cream); }
+    .qty-input input { width: 40px; text-align: center; border: 0; background: none; font-weight: 700; }
+    
+    .product-features { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 2.5rem; }
+    .feature-item { display: flex; align-items: center; gap: .75rem; font-size: .85rem; color: var(--ink); font-weight: 600; }
+    .feature-item svg { width: 20px; height: 20px; color: var(--navy); }
+    
+    .product-tabs { border-top: 1px solid var(--line); margin-top: 4rem; padding-top: 3rem; }
+    .product-tabs__nav { display: flex; gap: 3rem; margin-bottom: 2rem; border-bottom: 1px solid var(--line); }
+    .product-tab-link { padding-bottom: 1rem; font-weight: 700; color: var(--muted); position: relative; cursor: pointer; }
+    .product-tab-link.is-active { color: var(--ink); }
+    .product-tab-link.is-active::after { content: ""; position: absolute; bottom: -1px; left: 0; right: 0; height: 2px; background: var(--navy); }
+    
+    .product-content { line-height: 1.7; color: var(--muted); }
+    .product-content h2, .product-content h3 { color: var(--ink); margin-top: 2rem; }
+    
+    @media (max-width: 960px) {
+      .product-layout { grid-template-columns: 1fr; gap: 2rem; }
+      .product-media { position: static; }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="header__top" style="grid-template-columns:auto 1fr auto">
+      <a class="brand header__logo" href="../index.html" aria-label="DecoShop Toulouse">
+        <span class="brand__logo"><img src="../assets/logo.png" alt="DecoShop Toulouse" /></span>
+        <span class="brand__text">
+          <span class="brand__name">DecoShop</span>
+          <span class="brand__city">Toulouse</span>
+        </span>
+      </a>
+      <div></div>
+      <a class="btn btn--ghost btn--sm" href="../index.html">&larr; Retour</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="product-layout">
+      <div class="product-media" data-reveal>
+        <div class="product-media__main">
+          <img src="../__IMG__" alt="__TITLE__" id="mainImg" />
+        </div>
+      </div>
+
+      <div class="product-info" data-reveal>
+        <nav class="product-info__crumbs">
+          <a href="../index.html">Accueil</a> <span>/</span>
+          <a href="../collections/__CAT_SLUG__.html">__CAT__</a> <span>/</span>
+          <span>__TITLE__</span>
+        </nav>
+
+        <span class="product-info__cat">__CAT__</span>
+        <h1 class="product-info__title">__TITLE__</h1>
+        
+        <div class="product-info__rating">
+          <span>__STARS__</span>
+          <span style="color:var(--muted);font-size:.9rem">(__REVIEWS__ avis v&eacute;rifi&eacute;s)</span>
+        </div>
+
+        <div class="product-info__price">
+          __PRICE_HTML__
+        </div>
+
+        <div class="product-info__short">
+          __SHORT_DESC__
+        </div>
+
+        <div class="product-form">
+          <div class="product-form__qty">
+            <label style="font-weight:700;font-size:.9rem">Quantit&eacute;</label>
+            <div class="qty-input">
+              <button type="button" onclick="this.nextElementSibling.stepDown()">-</button>
+              <input type="number" value="1" min="1" readonly />
+              <button type="button" onclick="this.previousElementSibling.stepUp()">+</button>
+            </div>
+          </div>
+          <button class="btn btn--primary" style="width:100%;height:56px;font-size:1.1rem">Ajouter au panier</button>
+        </div>
+
+        <div class="product-features">
+          <div class="feature-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> En stock &agrave; Toulouse</div>
+          <div class="feature-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg> Retrait magasin 2h</div>
+          <div class="feature-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><poly line points="16 8 20 8 23 11 23 16 16 16"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg> Livraison 24/48h</div>
+          <div class="feature-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Paiement s&eacute;curis&eacute;</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-tabs" data-reveal>
+      <div class="product-tabs__nav">
+        <div class="product-tab-link is-active">Description</div>
+        <div class="product-tab-link">Caract&eacute;ristiques</div>
+        <div class="product-tab-link">Avis</div>
+      </div>
+      <div class="product-content">
+        __LONG_DESC__
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__bottom">
+        <div>&copy; 2026 DecoShop Toulouse. Tous droits r&eacute;serv&eacute;s.</div>
+        <div class="footer__links">
+          <a href="../pages/mentions-legales.html">Mentions l&eacute;gales</a> &middot;
+          <a href="../pages/cgv.html">CGV</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/app.js" defer></script>
+</body>
+</html>
+'@
+
+function New-Product($def) {
+    $priceHtml = if ($def.oldPrice) {
+        "<span class=""price price--sale"">$($def.price)&nbsp;&euro;</span><span class=""price price--strike"">$($def.oldPrice)&nbsp;&euro;</span>"
+    } else {
+        "<span class=""price"">$($def.price)&nbsp;&euro;</span>"
+    }
+    
+    $stars = '&starf;' * [int][math]::Floor($def.rating) + '&star;' * (5 - [int][math]::Floor($def.rating))
+    
+    $html = $template
+    $html = $html.Replace('__TITLE__', $def.title)
+    $html = $html.Replace('__DESC__', $def.shortDesc)
+    $html = $html.Replace('__SLUG__', $def.slug)
+    $html = $html.Replace('__IMG__', $def.img)
+    $html = $html.Replace('__CAT__', $def.cat)
+    $html = $html.Replace('__CAT_SLUG__', $def.catSlug)
+    $html = $html.Replace('__STARS__', $stars)
+    $html = $html.Replace('__REVIEWS__', [string]$def.reviews)
+    $html = $html.Replace('__PRICE_HTML__', $priceHtml)
+    $html = $html.Replace('__SHORT_DESC__', $def.shortDesc)
+    $html = $html.Replace('__LONG_DESC__', $def.longDesc)
+    
+    $utf8 = New-Object System.Text.UTF8Encoding $false
+    [System.IO.File]::WriteAllText((Join-Path $root "$($def.slug).html"), $html, $utf8)
+    Write-Host "OK  $($def.slug).html"
+}
+
+# ============== PRODUCT DEFINITIONS ==============
+$products = @(
+    @{
+        slug = 'lanterne-fez'
+        title = 'Lanterne marocaine Fez — laiton dor&eacute;'
+        cat = 'Luminaires'
+        catSlug = 'lanternes'
+        img = 'assets/img/photos/prod-lanterne.jpg'
+        price = '59,90'
+        rating = 5
+        reviews = 128
+        shortDesc = 'Lanterne traditionnelle de F&egrave;s en laiton cisel&eacute; main. Un classique ind&eacute;modable pour une ambiance chaleureuse et tamis&eacute;e.'
+        longDesc = '<h2>L&rsquo;artisanat de F&egrave;s dans votre salon</h2><p>Cette lanterne est enti&egrave;rement fa&ccedil;onn&eacute;e &agrave; la main par les artisans de la m&eacute;dina de F&egrave;s. Le laiton est travaill&eacute; au marteau, puis chaque petit motif est perc&eacute; avec pr&eacute;cision pour laisser passer la lumi&egrave;re et projeter des ombres po&eacute;tiques sur vos murs.</p><h3>D&eacute;tails techniques</h3><ul><li>Mati&egrave;re : Laiton v&eacute;ritable</li><li>Finition : Dor&eacute;e patin&eacute;e</li><li>Hauteur : 40 cm</li><li>Diam&egrave;tre : 22 cm</li><li>Compatible avec bougies ou kit &eacute;lectrique (non fourni)</li></ul>'
+    },
+    @{
+        slug = 'tapis-berbere-atlas'
+        title = 'Tapis berb&egrave;re Atlas — laine naturelle 200x290'
+        cat = 'Tapis'
+        catSlug = 'tapis'
+        img = 'assets/img/photos/prod-tapis.jpg'
+        price = '239,00'
+        oldPrice = '299,00'
+        rating = 5
+        reviews = 87
+        shortDesc = 'Tapis Beni Ouarain authentique tiss&eacute; main dans le Moyen Atlas. Laine vierge &eacute;paisse et motifs g&eacute;om&eacute;triques traditionnels.'
+        longDesc = '<h2>Un tr&eacute;sor de l&rsquo;Atlas</h2><p>Chaque tapis est une pi&egrave;ce unique. Les femmes tisseuses utilisent une laine de mouton de haute qualit&eacute;, non trait&eacute;e chimiquement, pour garantir une douceur incomparable et une durabilit&eacute; exceptionnelle.</p><h3>Dimensions et mati&egrave;res</h3><ul><li>Dimensions : 200 x 290 cm</li><li>Mati&egrave;re : 100% laine de mouton</li><li>&Eacute;paisseur : Environ 3 cm</li><li>Origine : Moyen Atlas, Maroc</li></ul>'
+    },
+    @{
+        slug = 'service-a-the-andalus'
+        title = 'Service &agrave; th&eacute; Andalus — th&eacute;i&egrave;re + 6 verres dor&eacute;s'
+        cat = 'Arts de la table'
+        catSlug = 'vaisselle-orientale'
+        img = 'assets/img/photos/col-vaisselle.jpg'
+        price = '89,00'
+        rating = 5
+        reviews = 128
+        shortDesc = 'Service complet pour la c&eacute;r&eacute;monie du th&eacute;. Th&eacute;i&egrave;re en m&eacute;tal argent&eacute; et verres finement d&eacute;cor&eacute;s d&rsquo;or.'
+        longDesc = '<h2>L&rsquo;hospitalit&eacute; marocaine</h2><p>Indispensable pour recevoir vos proches, ce service allie tradition et &eacute;l&eacute;gance. La th&eacute;i&egrave;re permet de servir jusqu&rsquo;&agrave; 6 personnes, et les verres r&eacute;sistent &agrave; la chaleur tout en brillant sous les lumi&egrave;res de vos soir&eacute;es.</p><h3>Contenu du pack</h3><ul><li>1 th&eacute;i&egrave;re artisanale (1L)</li><li>6 verres &agrave; th&eacute; avec motifs dor&eacute;s</li><li>Entretien : Lavage &agrave; la main recommand&eacute;</li></ul>'
+    },
+    @{
+        slug = 'miroir-soleil-medina'
+        title = 'Miroir soleil Medina — laiton bross&eacute; &Oslash;80'
+        cat = 'Miroirs'
+        catSlug = 'salon'
+        img = 'assets/img/photos/prod-miroir.jpg'
+        price = '119,00'
+        rating = 5
+        reviews = 42
+        shortDesc = 'Miroir soleil embl&eacute;matique en laiton. Une pi&egrave;ce forte qui illumine votre entr&eacute;e ou votre salon.'
+        longDesc = '<h2>Un classique r&eacute;invent&eacute;</h2><p>Inspir&eacute; des designs des ann&eacute;es 60, ce miroir soleil est r&eacute;alis&eacute; en laiton bross&eacute;. Ses rayons cisel&eacute;s captent la lumi&egrave;re et apportent une touche solaire &agrave; votre int&eacute;rieur.</p><h3>Sp&eacute;cifications</h3><ul><li>Diam&egrave;tre total : 80 cm</li><li>Diam&egrave;tre miroir : 30 cm</li><li>Mati&egrave;re : Laiton et verre</li><li>Poids : 3.5 kg</li></ul>'
+    },
+    @{
+        slug = 'pouf-cuir-marrakech'
+        title = 'Pouf en cuir Marrakech — tress&eacute; main'
+        cat = 'Assises'
+        catSlug = 'salon'
+        img = 'assets/img/photos/prod-pouf.jpg'
+        price = '149,00'
+        rating = 5
+        reviews = 64
+        shortDesc = 'Pouf v&eacute;ritable en cuir de ch&egrave;vre, tress&eacute; &agrave; la main par les tanneurs de Marrakech. Confort et authenticit&eacute;.'
+        longDesc = '<h2>Le confort nomade</h2><p>Ce pouf est une pi&egrave;ce artisanale robuste. Le cuir est tann&eacute; de mani&egrave;re traditionnelle, ce qui lui donne cette odeur caract&eacute;ristique et cette patine qui s&rsquo;am&eacute;liore avec le temps.</p><h3>Caract&eacute;ristiques</h3><ul><li>Mati&egrave;re : 100% cuir de ch&egrave;vre</li><li>Garnissage : Vendu vide (remplissage conseill&eacute; avec vieux v&ecirc;tements ou mousse)</li><li>Diam&egrave;tre : 55 cm</li><li>Hauteur : 35 cm</li></ul>'
+    },
+    @{
+        slug = 'photophore-etoile'
+        title = 'Photophore &eacute;toile ajour&eacute;e — cuivre'
+        cat = 'Bougies'
+        catSlug = 'lanternes'
+        img = 'assets/img/photos/prod-photophore.jpg'
+        price = '24,90'
+        rating = 4
+        reviews = 31
+        shortDesc = 'Petit photophore en forme d&rsquo;&eacute;toile, r&eacute;alis&eacute; en cuivre ajour&eacute;. Parfait pour une d&eacute;co de table magique.'
+        longDesc = '<h2>Une pluie d&rsquo;&eacute;toiles</h2><p>Ce petit objet d&eacute;coratif projette des &eacute;toiles sur vos surfaces d&egrave;s qu&rsquo;une bougie y est allum&eacute;e. Id&eacute;al pour les tabl&eacute;es de Ramadan ou de No&euml;l.</p><h3>D&eacute;tails</h3><ul><li>Mati&egrave;re : Cuivre</li><li>Hauteur : 15 cm</li><li>Entretien : Chiffon sec</li></ul>'
+    },
+    @{
+        slug = 'plateau-grave-alger'
+        title = 'Plateau grav&eacute; Alger — m&eacute;tal argent&eacute; &Oslash;50'
+        cat = 'Arts de la table'
+        catSlug = 'vaisselle-orientale'
+        img = 'assets/img/photos/prod-plateau.jpg'
+        price = '69,00'
+        rating = 5
+        reviews = 42
+        shortDesc = 'Grand plateau de service traditionnel en m&eacute;tal argent&eacute; finement grav&eacute;.'
+        longDesc = '<h2>L&rsquo;&eacute;l&eacute;gance du service</h2><p>Ce plateau est id&eacute;al pour servir le th&eacute; ou comme &eacute;l&eacute;ment d&eacute;coratif mural. Sa gravure artisanale repr&eacute;sente des motifs g&eacute;om&eacute;triques alg&eacute;rois classiques.</p><h3>Dimensions</h3><ul><li>Diam&egrave;tre : 50 cm</li><li>Mati&egrave;re : M&eacute;tal argent&eacute;</li></ul>'
+    },
+    @{
+        slug = 'coussin-kilim'
+        title = 'Coussin Kilim brod&eacute; main — 45x45'
+        cat = 'Textile'
+        catSlug = 'salon'
+        img = 'assets/img/photos/prod-coussin.jpg'
+        price = '29,90'
+        rating = 4
+        reviews = 78
+        shortDesc = 'Coussin en laine Kilim v&eacute;ritable, motifs ethniques et couleurs chaudes.'
+        longDesc = '<h2>Touche ethnique chic</h2><p>Fabriqu&eacute; &agrave; partir de fragments de kilims anciens ou tiss&eacute; sp&eacute;cialement, ce coussin apporte du relief et de la couleur &agrave; votre canap&eacute;.</p><h3>D&eacute;tails</h3><ul><li>Dimensions : 45 x 45 cm</li><li>Mati&egrave;re : Laine et coton</li><li>Housse d&eacute;houssable</li></ul>'
+    },
+    @{
+        slug = 'cadre-calligraphie-bismillah'
+        title = 'Cadre calligraphie Bismillah — dor&eacute;'
+        cat = 'D&eacute;co murale'
+        catSlug = 'calligraphie'
+        img = 'assets/img/photos/col-calligraphie.jpg'
+        price = '39,00'
+        oldPrice = '46,00'
+        rating = 5
+        reviews = 54
+        shortDesc = 'Calligraphie arabe contemporaine "Bismillah" (Au nom de Dieu) dans un cadre dor&eacute; &eacute;l&eacute;gant.'
+        longDesc = '<h2>La beaut&eacute; du verbe</h2><p>Cette oeuvre minimaliste et moderne s&rsquo;int&egrave;gre dans tous les int&eacute;rieurs. Elle est imprim&eacute;e sur un papier d&rsquo;art de haute qualit&eacute;.</p><h3>Format</h3><ul><li>Dimensions : 30 x 40 cm</li><li>Cadre : Bois dor&eacute;</li></ul>'
+    },
+    @{
+        slug = 'tajine-safi'
+        title = 'Tajine d&eacute;cor Safi — peint main &Oslash;32'
+        cat = 'Arts de la table'
+        catSlug = 'vaisselle-orientale'
+        img = 'assets/img/photos/prod-tajine.jpg'
+        price = '34,90'
+        oldPrice = '46,90'
+        rating = 5
+        reviews = 78
+        shortDesc = 'Tajine traditionnel de Safi en c&eacute;ramique &eacute;maill&eacute;e et peinte &agrave; la main.'
+        longDesc = '<h2>Cuisine authentique</h2><p>Ce tajine est con&ccedil;u pour la cuisson lente au four ou sur le gaz (avec diffuseur). Ses motifs bleus sont typiques de la r&eacute;gion de Safi.</p><h3>D&eacute;tails</h3><ul><li>Diam&egrave;tre : 32 cm</li><li>Mati&egrave;re : Terre cuite &eacute;maill&eacute;e</li></ul>'
+    }
+)
+
+foreach ($p in $products) { New-Product $p }
