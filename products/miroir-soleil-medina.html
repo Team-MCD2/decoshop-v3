@@ -132,12 +132,37 @@
 
     <div class="product-tabs" data-reveal>
       <div class="product-tabs__nav">
-        <div class="product-tab-link is-active">Description</div>
-        <div class="product-tab-link">Caract&eacute;ristiques</div>
-        <div class="product-tab-link">Avis</div>
+        <div class="product-tab-link is-active" data-tab="desc">Description</div>
+        <div class="product-tab-link" data-tab="specs">Caract&eacute;ristiques</div>
+        <div class="product-tab-link" data-tab="reviews">Avis</div>
       </div>
-      <div class="product-content">
-        <h2>Un classique r&eacute;invent&eacute;</h2><p>Inspir&eacute; des designs des ann&eacute;es 60, ce miroir soleil est r&eacute;alis&eacute; en laiton bross&eacute;. Ses rayons cisel&eacute;s captent la lumi&egrave;re et apportent une touche solaire &agrave; votre int&eacute;rieur.</p><h3>Sp&eacute;cifications</h3><ul><li>Diam&egrave;tre total : 80 cm</li><li>Diam&egrave;tre miroir : 30 cm</li><li>Mati&egrave;re : Laiton et verre</li><li>Poids : 3.5 kg</li></ul>
+      <div class="product-tab-content" id="tab-desc">
+        <div class="product-content">
+          <h2>Un classique r&eacute;invent&eacute;</h2><p>Inspir&eacute; des designs des ann&eacute;es 60, ce miroir soleil est r&eacute;alis&eacute; en laiton bross&eacute;. Ses rayons cisel&eacute;s captent la lumi&egrave;re et apportent une touche solaire &agrave; votre int&eacute;rieur.</p><h3>Sp&eacute;cifications</h3><ul><li>Diam&egrave;tre total : 80 cm</li><li>Diam&egrave;tre miroir : 30 cm</li><li>Mati&egrave;re : Laiton et verre</li><li>Poids : 3.5 kg</li></ul>
+        </div>
+      </div>
+      <div class="product-tab-content" id="tab-specs" style="display:none">
+        <div class="product-content">
+          <ul><li>Origine : Artisanat du Maroc</li><li>Mati&egrave;re : Mat&eacute;riaux nobles et durables</li><li>Fabrication : Enti&egrave;rement &agrave; la main</li></ul>
+        </div>
+      </div>
+      <div class="product-tab-content" id="tab-reviews" style="display:none">
+        <div class="product-content">
+                  <div style="display:flex;flex-direction:column;gap:1.5rem">
+            <div style="border-bottom:1px solid var(--line);padding-bottom:1rem">
+                <div style="color:var(--yellow-600);margin-bottom:.5rem">&starf;&starf;&starf;&starf;&starf;</div>
+                <strong style="display:block;margin-bottom:.2rem">Magnifique !</strong>
+                <p style="font-size:.9rem;margin:0">Conforme &agrave; la description, la qualit&eacute; est au rendez-vous. Livraison rapide.</p>
+                <small style="color:var(--muted)">- Sarah B. (Acheteur v&eacute;rifi&eacute;)</small>
+            </div>
+            <div>
+                <div style="color:var(--yellow-600);margin-bottom:.5rem">&starf;&starf;&starf;&starf;&starf;</div>
+                <strong style="display:block;margin-bottom:.2rem">Superbe rendu</strong>
+                <p style="font-size:.9rem;margin:0">Tr&egrave;s belle pi&egrave;ce, je recommande vivement DecoShop !</p>
+                <small style="color:var(--muted)">- Karim M. (Acheteur v&eacute;rifi&eacute;)</small>
+            </div>
+        </div>
+        </div>
       </div>
     </div>
   </main>
@@ -154,6 +179,17 @@
     </div>
   </footer>
 
+  <script>
+    document.querySelectorAll('.product-tab-link').forEach(link => {
+      link.addEventListener('click', () => {
+        const tab = link.dataset.tab;
+        document.querySelectorAll('.product-tab-link').forEach(l => l.classList.remove('is-active'));
+        document.querySelectorAll('.product-tab-content').forEach(c => c.style.display = 'none');
+        link.classList.add('is-active');
+        document.getElementById('tab-' + tab).style.display = 'block';
+      });
+    });
+  </script>
   <script src="../assets/js/app.js" defer></script>
 </body>
 </html>

@@ -138,12 +138,24 @@ $template = @'
 
     <div class="product-tabs" data-reveal>
       <div class="product-tabs__nav">
-        <div class="product-tab-link is-active">Description</div>
-        <div class="product-tab-link">Caract&eacute;ristiques</div>
-        <div class="product-tab-link">Avis</div>
+        <div class="product-tab-link is-active" data-tab="desc">Description</div>
+        <div class="product-tab-link" data-tab="specs">Caract&eacute;ristiques</div>
+        <div class="product-tab-link" data-tab="reviews">Avis</div>
       </div>
-      <div class="product-content">
-        __LONG_DESC__
+      <div class="product-tab-content" id="tab-desc">
+        <div class="product-content">
+          __LONG_DESC__
+        </div>
+      </div>
+      <div class="product-tab-content" id="tab-specs" style="display:none">
+        <div class="product-content">
+          __SPECS_HTML__
+        </div>
+      </div>
+      <div class="product-tab-content" id="tab-reviews" style="display:none">
+        <div class="product-content">
+          __REVIEWS_HTML__
+        </div>
       </div>
     </div>
   </main>
@@ -160,6 +172,17 @@ $template = @'
     </div>
   </footer>
 
+  <script>
+    document.querySelectorAll('.product-tab-link').forEach(link => {
+      link.addEventListener('click', () => {
+        const tab = link.dataset.tab;
+        document.querySelectorAll('.product-tab-link').forEach(l => l.classList.remove('is-active'));
+        document.querySelectorAll('.product-tab-content').forEach(c => c.style.display = 'none');
+        link.classList.add('is-active');
+        document.getElementById('tab-' + tab).style.display = 'block';
+      });
+    });
+  </script>
   <script src="../assets/js/app.js" defer></script>
 </body>
 </html>
@@ -173,6 +196,29 @@ function New-Product($def) {
     }
     
     $stars = '&starf;' * [int][math]::Floor($def.rating) + '&star;' * (5 - [int][math]::Floor($def.rating))
+
+    $specs = if ($def.specsHtml) { $def.specsHtml } else {
+        "<ul><li>Origine : Artisanat du Maroc</li><li>Mati&egrave;re : Mat&eacute;riaux nobles et durables</li><li>Fabrication : Enti&egrave;rement &agrave; la main</li></ul>"
+    }
+
+    $reviews = if ($def.reviewsHtml) { $def.reviewsHtml } else {
+        @"
+        <div style="display:flex;flex-direction:column;gap:1.5rem">
+            <div style="border-bottom:1px solid var(--line);padding-bottom:1rem">
+                <div style="color:var(--yellow-600);margin-bottom:.5rem">&starf;&starf;&starf;&starf;&starf;</div>
+                <strong style="display:block;margin-bottom:.2rem">Magnifique !</strong>
+                <p style="font-size:.9rem;margin:0">Conforme &agrave; la description, la qualit&eacute; est au rendez-vous. Livraison rapide.</p>
+                <small style="color:var(--muted)">- Sarah B. (Acheteur v&eacute;rifi&eacute;)</small>
+            </div>
+            <div>
+                <div style="color:var(--yellow-600);margin-bottom:.5rem">&starf;&starf;&starf;&starf;&starf;</div>
+                <strong style="display:block;margin-bottom:.2rem">Superbe rendu</strong>
+                <p style="font-size:.9rem;margin:0">Tr&egrave;s belle pi&egrave;ce, je recommande vivement DecoShop !</p>
+                <small style="color:var(--muted)">- Karim M. (Acheteur v&eacute;rifi&eacute;)</small>
+            </div>
+        </div>
+"@
+    }
     
     $html = $template
     $html = $html.Replace('__TITLE__', $def.title)
@@ -186,6 +232,8 @@ function New-Product($def) {
     $html = $html.Replace('__PRICE_HTML__', $priceHtml)
     $html = $html.Replace('__SHORT_DESC__', $def.shortDesc)
     $html = $html.Replace('__LONG_DESC__', $def.longDesc)
+    $html = $html.Replace('__SPECS_HTML__', $specs)
+    $html = $html.Replace('__REVIEWS_HTML__', $reviews)
     
     $utf8 = New-Object System.Text.UTF8Encoding $false
     [System.IO.File]::WriteAllText((Join-Path $root "$($def.slug).html"), $html, $utf8)
