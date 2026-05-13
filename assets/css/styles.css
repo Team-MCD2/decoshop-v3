@@ -86,9 +86,34 @@ p{margin:0 0 1em}
 .header__icon{display:flex;flex-direction:column;align-items:center;gap:2px;color:var(--ink);font-size:.72rem;position:relative}
 .header__icon:hover{color:var(--navy)}
 .header__icon svg{width:22px;height:22px;stroke-width:1.6}
-.cart-count{position:absolute;top:-6px;right:-8px;background:var(--yellow);color:var(--ink);font-size:.65rem;font-weight:700;min-width:18px;height:18px;padding:0 5px;border-radius:999px;display:inline-flex;align-items:center;justify-content:center}
 .menu-toggle{display:none;width:40px;height:40px;border-radius:999px;background:#f4f5f7;align-items:center;justify-content:center}
 .menu-toggle svg{width:22px;height:22px}
+
+/* Badge styles for header icons */
+.icon-badge-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.icon-badge-wrapper .badge {
+  position: absolute;
+  top: -8px;
+  right: -10px;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 4px;
+  border-radius: 999px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  color: #fff;
+}
+.badge--red { background: #E11D48; }
+.badge--yellow { background: var(--yellow); color: var(--ink) !important; }
 
 /* Nav */
 .nav{border-top:1px solid var(--line);background:#fff}
@@ -98,8 +123,7 @@ p{margin:0 0 1em}
 .nav__link .caret{width:12px;height:12px;transition:transform .2s}
 .nav__item:hover .nav__link .caret{transform:rotate(180deg)}
 .nav__link:hover{color:var(--navy)}
-.nav__link--hot{color:#dc2626}
-.nav__link--hot::before{content:"🔥";margin-right:.25rem}
+.nav__link--hot{color:#E11D48!important}
 
 /* Mega menu */
 .mega{position:absolute;left:50%;top:100%;transform:translateX(-50%) translateY(10px);min-width:880px;max-width:96vw;background:#fff;border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow-lg);padding:1.5rem;display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem;opacity:0;visibility:hidden;transition:.25s ease;z-index:60}
@@ -271,10 +295,10 @@ p{margin:0 0 1em}
 .footer h5{color:#fff;font-family:'DM Sans';font-size:.78rem;text-transform:uppercase;letter-spacing:.16em;margin:0 0 1.2rem;font-weight:700}
 .footer__brand .brand{margin-bottom:1rem}
 .footer__brand p{color:#8b93a5;line-height:1.6}
-.footer__social{display:flex;gap:.6rem;margin-top:1rem}
-.footer__social a{width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;transition:.2s}
-.footer__social a:hover{background:var(--yellow);color:var(--ink)}
-.footer__social svg{width:18px;height:18px}
+.footer__social{display:flex;gap:.75rem;margin-top:1.25rem}
+.footer__social a{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.1);color:#fff;transition:background .2s, transform .2s}
+.footer__social a:hover{background:rgba(255,255,255,.2);transform:translateY(-2px)}
+.footer__social svg{width:16px;height:16px}
 .footer ul li{margin-bottom:.6rem}
 /* Payment logos: real brand images on white pill background */
 .footer__pay{display:flex;gap:.45rem;flex-wrap:wrap;margin-top:1rem;align-items:center}

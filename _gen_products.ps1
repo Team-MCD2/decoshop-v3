@@ -110,17 +110,26 @@ $template = @'
 
       <div class="header__actions">
         <a class="header__icon" href="../index.html#magasin" aria-label="Notre magasin">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s-7-5.5-7-12a7 7 0 0 1 14 0c0 6.5-7 12-7 12z"/><circle cx="12" cy="10" r="2.6"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" style="width:22px;height:22px"><path d="M12 22s-7-5.5-7-12a7 7 0 0 1 14 0c0 6.5-7 12-7 12z"/><circle cx="12" cy="10" r="2.6"/></svg>
           <span>Magasin</span>
         </a>
         <a class="header__icon" href="/account" aria-label="Mon compte">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-3.5 4.5-5.5 8-5.5s6.5 2 8 5.5"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" style="width:22px;height:22px"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-3.5 4.5-5.5 8-5.5s6.5 2 8 5.5"/></svg>
           <span>Compte</span>
         </a>
+        <a class="header__icon" href="/favorites" aria-label="Mes favoris">
+          <div class="icon-badge-wrapper">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" style="width:22px;height:22px"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8z"/></svg>
+            <span class="badge badge--red">0</span>
+          </div>
+          <span>Favoris</span>
+        </a>
         <a class="header__icon" href="/cart" aria-label="Panier">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h18l-1.5 12.5a1.5 1.5 0 0 1-1.5 1.3H6a1.5 1.5 0 0 1-1.5-1.3L3 7z"/><path d="M8 7V5.5A4 4 0 0 1 16 5.5V7"/></svg>
+          <div class="icon-badge-wrapper">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" style="width:22px;height:22px"><path d="M3 7h18l-1.5 12.5a1.5 1.5 0 0 1-1.5 1.3H6a1.5 1.5 0 0 1-1.5-1.3L3 7z"/><path d="M8 7V5.5A4 4 0 0 1 16 5.5V7"/></svg>
+            <span class="badge badge--yellow">0</span>
+          </div>
           <span>Panier</span>
-          <span class="cart-count" hidden>0</span>
         </a>
       </div>
     </div>
@@ -207,7 +216,11 @@ $template = @'
             </div>
           </div>
         </li>
-        <li class="nav__item"><a class="nav__link nav__link--hot" href="../collections/ramadan.html">Ramadan</a></li>
+        <li class="nav__item"><a class="nav__link nav__link--hot" href="../collections/ramadan.html">Ramadan & A&iuml;d</a></li>
+        <li class="nav__item"><a class="nav__link" href="../collections/cadeaux.html">Cadeaux</a></li>
+        <li class="nav__item"><a class="nav__link" href="../collections/nouveautes.html">Nouveaut&eacute;s</a></li>
+        <li class="nav__item"><a class="nav__link" href="../collections/soldes.html">Promos</a></li>
+        <li class="nav__item"><a class="nav__link" href="../index.html#magasin">Notre magasin</a></li>
         <li class="nav__item"><a class="nav__link" href="../pages/contact.html">Contact</a></li>
       </ul>
     </nav>
@@ -317,7 +330,7 @@ $template = @'
           </a>
           <p>Votre boutique de d&eacute;coration int&eacute;rieure &agrave; Toulouse. Objets d&eacute;co, tapis, luminaires, arts de la table et ambiance orientale.</p>
           <div class="footer__social">
-            <a href="https://www.tiktok.com/@decoshoptoulouse" aria-label="TikTok @decoshoptoulouse" target="_blank" rel="noopener">
+            <a href="https://www.tiktok.com/@decoshoptoulouse?_t=8qrNuvaGHBJ&amp;_r=1" aria-label="TikTok @decoshoptoulouse" target="_blank" rel="noopener">
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 5.4a5.5 5.5 0 0 1-3.1-1.7 5.5 5.5 0 0 1-1.2-3.4H8.9v13.6a2.7 2.7 0 1 1-2.7-2.7c.3 0 .6 0 .8.1V7.5a6 6 0 1 0 5.1 5.9V8.8a8.4 8.4 0 0 0 4.4 1.4V7.1z"/></svg>
             </a>
           </div>
@@ -325,10 +338,11 @@ $template = @'
         <div>
           <h5>Boutique</h5>
           <ul>
-            <li><a href="../collections/salon.html">Nouveaut&eacute;s</a></li>
+            <li><a href="../collections/nouveautes.html">Nouveaut&eacute;s</a></li>
             <li><a href="../collections/ramadan.html">Ramadan & A&iuml;d</a></li>
             <li><a href="../collections/salon.html">Salon</a></li>
             <li><a href="../collections/arts-de-la-table.html">Arts de la table</a></li>
+            <li><a href="../collections/soldes.html">Promos</a></li>
           </ul>
         </div>
         <div>
@@ -338,6 +352,16 @@ $template = @'
             <li><a href="../pages/retours.html">Retours &amp; remboursements</a></li>
             <li><a href="../pages/faq.html">FAQ</a></li>
             <li><a href="../pages/contact.html">Nous contacter</a></li>
+            <li><a href="../pages/suivi.html">Suivi de commande</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5>&Agrave; propos</h5>
+          <ul>
+            <li><a href="../pages/a-propos.html">Notre histoire</a></li>
+            <li><a href="../index.html#magasin">Notre magasin</a></li>
+            <li><a href="../pages/engagements.html">Nos engagements</a></li>
+            <li><a href="../pages/professionnels.html">Espace pro / B2B</a></li>
           </ul>
         </div>
         <div>
@@ -345,19 +369,27 @@ $template = @'
           <ul>
             <li>58 Rue Jacques Babinet</li>
             <li>31100 Toulouse, France</li>
+            <li><a href="tel:+33767278625">07 67 27 86 25</a></li>
+            <li><a href="mailto:contact@decoshop-toulouse.fr">contact@decoshop-toulouse.fr</a></li>
             <li>Lun&ndash;Sam &middot; 10h&ndash;19h</li>
           </ul>
-          <div class="footer__pay">
-            <span class="pay-badge pay-badge--cb">CB</span>
-            <span class="pay-badge pay-badge--x3">3&times;</span>
+          <div class="footer__pay" aria-label="Moyens de paiement accept&eacute;s">
+            <img src="../assets/img/payments/visa.svg" alt="Visa" width="46" height="30" />
+            <img src="../assets/img/payments/mastercard.svg" alt="Mastercard" width="46" height="30" />
+            <img src="../assets/img/payments/amex.svg" alt="American Express" width="46" height="30" />
+            <span class="pay-badge pay-badge--cb" aria-label="Carte Bancaire">CB</span>
+            <img src="../assets/img/payments/paypal.svg" alt="PayPal" width="46" height="30" />
+            <span class="pay-badge pay-badge--x3" aria-label="Paiement en 3 fois sans frais">3&times;</span>
           </div>
         </div>
       </div>
       <div class="footer__bottom">
-        <div>&copy; 2026 DecoShop Toulouse. Tous droits r&eacute;serv&eacute;s.</div>
+        <div>&copy; <span id="year">2026</span> DecoShop Toulouse. Tous droits r&eacute;serv&eacute;s.</div>
         <div class="footer__links">
           <a href="../pages/mentions-legales.html">Mentions l&eacute;gales</a> &middot;
-          <a href="../pages/cgv.html">CGV</a>
+          <a href="../pages/cgv.html">CGV</a> &middot;
+          <a href="../pages/confidentialite.html">Confidentialit&eacute;</a> &middot;
+          <a href="../pages/cookies.html">Cookies</a>
         </div>
         <div class="footer__credit">
           Site d&eacute;velopp&eacute; par <a href="https://microdidact.com/" target="_blank" rel="noopener" class="credit-link">Microdidact</a>
